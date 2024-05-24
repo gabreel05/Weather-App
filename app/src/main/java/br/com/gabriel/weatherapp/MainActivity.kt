@@ -9,6 +9,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -167,12 +168,18 @@ fun WeatherCard(viewModel: WeatherViewModel, modifier: Modifier = Modifier) {
                     .align(Alignment.TopStart),
                 contentDescription = "Image"
             )
-            Text(
+            Row(
                 modifier = Modifier.align(Alignment.BottomEnd),
-                style = TextStyle(fontSize = 40.sp, fontWeight = FontWeight.Bold),
-                text = "$temp °C",
-//            text = "${weather.current?.temp_c.toString()} °C" ? ""
-            )
+            ) {
+                Text(
+                    style = TextStyle(fontSize = 40.sp, fontWeight = FontWeight.Bold),
+                    text = temp,
+                )
+                Text(
+                    style = TextStyle(fontSize = 30.sp, fontWeight = FontWeight.Bold),
+                    text = " °C",
+                )
+            }
 
         }
 
